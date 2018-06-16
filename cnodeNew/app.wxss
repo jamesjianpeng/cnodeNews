@@ -1,0 +1,182 @@
+/**app.wxss**/
+@import "./icon/iconfont";
+
+view {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+.justify-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.middle-container {
+  display: flex;
+  align-items: center;
+}
+
+.middle-v-container {
+  display: flex;
+  justify-content: center;
+}
+
+.container-default {
+  padding: 8px 10px;
+  height: 100%;
+}
+
+.text {
+  font-size: 14px;
+}
+
+.text-1 {
+  font-size: 12px;
+}
+
+.text-2 {
+  font-size: 14px;
+}
+
+.text-3 {
+  font-size: 16px;
+}
+
+.padding-l {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.padding-v {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.padding-v-7 {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.padding-v-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.padding-bottom {
+  padding-bottom: 5px;
+}
+
+.padding-top {
+  padding-top: 5px;
+}
+
+.margin-top {
+  margin-top: 10px; 
+}
+
+.margin-right {
+  margin-right: 5px;
+}
+
+.margin-left {
+  margin-right: 5px;
+}
+
+.border-3 {
+  /* border: 1px solid #3F51B5; */
+  box-shadow: 0 0 0 1px #3F51B5 inset;
+}
+.border-5 {
+  /* border: 1px solid #5C6BC0; */
+  box-shadow: 0 0 0 1px #5C6BC0 inset;
+}
+.border-7 {
+  /* border: 1px solid #7986CB; */
+  box-shadow: 0 0 0 1px #7986CB inset;
+}
+
+.border-radius {
+  border-radius: 5px;
+}
+
+.bg-3 {
+  background-color: #FFF3E0;
+}
+
+.text-withe {
+  color: #757575;
+  font-size: 14px;
+}
+
+/* 富文本 */
+.rich-text img {
+  width: 100%;
+}
+
+.position-ralative {
+  position: relative;
+}
+
+.sub-bg-1 {
+  background-color: #FFCC80;
+}
+
+.sub-bg-2 {
+  background-color: #FFB74D;
+}
+
+.container-padding-top {
+  padding-top: 40px;
+}
+
+/* loading */
+
+
+.content-loading {
+  width: 100%;
+  height: 100%;
+}
+
+.bg-loading-1 {
+  background-color: #ECEFF1 !important;
+}
+
+.bg-loading-2 {
+  background-color: #CFD8DC !important;
+}
+
+.bg-loading-3 {
+  background-color: #B0BEC5 !important;
+}
+
+.color-loading {
+  color: #eee !important;
+}
+
+.line-height-loading {
+  line-height: 24px !important;
+  height: 24px !important;
+}
+
+.font-size-loading {
+  font-size: 10px !important;
+}
+
+.radius-loading {
+  border-radius: 3px !important;
+}
+
+.opacity-loading {
+  opacity: 0 !important;
+}

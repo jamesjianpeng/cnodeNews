@@ -1,0 +1,26 @@
+/* components/login/login/index.wxss */
+@import "../../../app.wxss";
+
+.login-tip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.login-tip-container-init {
+  transform: translate3d(0, -100%, 0);
+  opacity: 0;
+}
+
+.tip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 100%; */
+}
+
+.login-tip-button {
+  padding: 3px 5px;
+  display: inline-block;
+}

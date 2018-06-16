@@ -1,0 +1,8 @@
+<!--components/login/login/index.wxml-->
+<view class="login-tip bg-3 login-tip-container-init" animation="{{animationData}}">
+  <view class="padding-v tip padding-l">
+    <text class="text-2 text-withe">还未登录</text> 
+    <text 
+      class="login-tip-button sub-bg-2 text-2 border-raduis text-withe" bindtap="login">登录</text>
+  </view>
+</view>

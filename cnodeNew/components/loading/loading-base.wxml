@@ -1,0 +1,6 @@
+<!--components/loading/loading-base.wxml-->
+<!-- <view class="loading-container"> -->
+  <view class="loading">
+    <text class="icon iconfont icon-yanjing"></text>
+  </view>
+<!-- </view> -->

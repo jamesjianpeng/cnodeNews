@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "login-tip": "/components/login/login-tip/login-tip",
+    "login-modal": "/components/login/login-modal/login-modal",
+    "me": "/components/me/me"
+  }
+}

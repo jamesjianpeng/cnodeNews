@@ -1,0 +1,16 @@
+<!--pages/topic-detail/topic-detail.wxml-->
+<view class="container-default">
+  <view class="bg-3 border-radius">
+    <topic-item
+      wx:if="{{!loading}}"
+      sign="detail"
+      item="{{value}}" 
+    />
+    <view>
+      <collect />
+    </view>
+    <view class="padding-l padding-v text-withe">
+      <rich-text nodes="{{value.content}}" bindtap="tap"></rich-text>
+    </view>
+  </view>
+</view>

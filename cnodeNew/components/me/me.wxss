@@ -1,0 +1,19 @@
+/* components/me/me.wxss */
+@import "../../app.wxss";
+
+/* 头像 */
+.avatar-container {
+  width: 100px;
+}
+.avatar {
+  width: 100%;
+  border-radius: 50%;
+  padding-top: 100%;  
+  background-size: cover;
+  border: 1px solid #eee;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+}

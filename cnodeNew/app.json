@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/topic/topic-list/index",    
+    "pages/home/me/index",
+    "pages/topic/topic-detail/index",
+    "pages/todo/index",
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#eeeeee",
+    "navigationBarTitleText": "cnodeNews",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/topic/topic-list/index",
+        "text": "主题"
+      },
+      {
+        "pagePath": "pages/home/me/index",
+        "text": "我"
+      },
+      {
+        "pagePath": "pages/todo/index",
+        "text": "todo"
+      }
+    ]
+  }
+}

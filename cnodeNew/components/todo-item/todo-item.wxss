@@ -1,0 +1,20 @@
+/* components/TodoItem/TodoItem.wxss */
+
+.item {
+  margin: 10px 0;
+  border: 1px solid #9FA8DA;
+  border-radius: 4px;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.clear {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0;
+}
+
+.item:hover .clear {
+  opacity: 1
+}

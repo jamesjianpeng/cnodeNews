@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "loading-base": "/components/loading/loading-base"
+  }
+}

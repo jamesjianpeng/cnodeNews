@@ -1,0 +1,4 @@
+<!--components/collect/collect.wxml-->
+<view>
+  <text class="icon iconfont icon-aixin" bindtap="collect">点击收藏</text>
+</view>

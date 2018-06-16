@@ -1,0 +1,47 @@
+<!--components/TopicItem/TopicItem.wxml-->
+<view 
+  data-id="index"
+  class="topic-item color-loading"
+>
+  
+  <view class="top padding-l padding-v-7 bg-loading-3">
+    <text class="title text-3 color-loading bg-loading-1 radius-loading line-height-loading font-size-loading">{{loadingText}}</text>  
+  </view>
+  <view class="justify-container cetner padding-l padding-v-10 bg-loading-2">
+    <view class="middle-container">
+      <text 
+            class="tab text-1 margin-right radius-loading font-size-loading">tab</text>
+      <text 
+        wx:if="{{loadingItemOne}}"
+        class="tab text-1 margin-right radius-loading font-size-loading">tab</text>
+        <text 
+        wx:if="{{loadingItemThree}}"
+        class="tab text-1 margin-right radius-loading font-size-loading">tab</text>
+
+    </view>
+    <view class="middle-container font-size-loading">
+        <text 
+          class="count text-1 margin-left radius-loading"
+        >
+          <text class="font-size-loading"></text>
+          <text class="font-size-loading">item.visit_count</text>
+        </text>
+        <text 
+          class="count text-1 margin-left radius-loading"
+          wx:if="{{loadingItemTwo}}"
+        >
+          <text class="font-size-loading"></text>
+          <text class="font-size-loading">item.visit_count</text>
+        </text>
+
+    </view>
+  </view>
+
+  <view class="bottom padding-l padding-v-10 justify-container bg-loading-1">
+    <text class="name text-2">author.loginname</text>
+    <text 
+      class="time text-1"
+    >createTime</text>
+  </view>
+
+</view>

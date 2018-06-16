@@ -1,0 +1,33 @@
+<!--pages/topic-list/topic-list.wxml-->
+<view class="container-default">
+    <login-tip wx:if="{{!isToken}}" bind:onLogin="login" />
+    <view class="container-default {{ !isToken ? 'container-padding-top' :'' }}">
+        <block
+          wx:if="{{list.length}}"      
+       >
+        <block 
+          wx:for="{{list}}"
+          wx:key="index">
+          <topic-item
+            index="{{index}}"
+            item="{{item}}" 
+            bind:onTopicDetail="onTopicDetail"
+          />
+        </block>
+      </block> 
+
+      <block
+        wx:else      
+      > 
+        <block 
+          wx:for="new Array(6)"
+          wx:key="index" >
+          <topic-item-loading />          
+        </block>
+       </block> 
+    </view>
+    <login-modal 
+      wx:if="{{islogining}}"
+      bind:onCancel="closeLoginModal"
+    />
+</view>

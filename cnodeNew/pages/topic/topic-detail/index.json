@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "topic-item": "/components/topic-item/topic-item",
+    "collect": "/components/collect/collect"
+  }
+}

@@ -1,0 +1,31 @@
+/* components/TopicItem/topic-item.wxss */
+@import "../../app.wxss";
+
+.topic-item {
+  margin-top: 10px; 
+  background-color: #7986CB;
+  color: #fff;
+  border-radius: 5px;
+}
+
+ .top {
+  background-color: #5C6BC0;
+  border-radius: 5px 5px 0 0;
+} 
+
+.good, .tab, .count {
+  background-color: #5C6BC0;
+  padding: 2px 4px;
+  border-radius: 15%;
+}
+
+
+ .cetner { 
+  /* box-shadow: 0 1px 0 0 #7986CB, 0 2px 0 0 #5C6BC0; */
+  /* border-bottom: 1px solid #5C6BC0; */
+ } 
+
+.bottom {
+  background-color: #C5CAE9;
+  border-radius: 0 0 5px 5px;
+}

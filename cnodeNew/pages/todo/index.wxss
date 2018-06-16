@@ -1,0 +1,62 @@
+/* pages/todo/todo.wxss */
+
+.todo {
+  padding:5px 10%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-container {
+  display: inline-block;
+  width: 75%;
+  margin-right: 5%;
+}
+
+.input {
+  height: 36px;
+  line-height: 36px;
+  border-bottom: 1px solid #eee;
+  padding: 1px 10px;
+  font-size: 16px;
+}
+
+input.input:focus {
+  border: 1px solid #FFA726;
+}
+
+.button-container {
+  display: inline-block;
+  width: 20%;
+}
+
+.button {
+  height: 36px;
+  line-height: 36px;
+  border-radius: 4px;
+  background-color: #3F51B5;
+  color: #fff;
+}
+
+/* list */ 
+.item-father {
+  margin: 10px 0;
+  border: 1px solid #9FA8DA;
+  border-radius: 4px;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.clear-father {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0;
+}
+
+.item-father:hover .clear-father {
+  opacity: 1
+}

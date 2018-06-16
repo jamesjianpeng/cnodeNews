@@ -1,0 +1,50 @@
+<!--components/TopicItem/TopicItem.wxml-->
+<view 
+  data-id="{{index}}"
+  class="topic-item"
+  bindtap="getTopicDetail"
+>
+  
+  <view class="top padding-l padding-v-7">
+    <text class="title text-3">{{item.title}}</text>  
+  </view>
+  <view class="justify-container cetner padding-l padding-v-10">
+    <view class="middle-container">
+        <text 
+          class="tab text-1 margin-right"
+          wx:if="{{tab}}"
+        >{{tab}}</text>
+
+        <text 
+          class="good text-1 margin-right"
+          wx:if="{{good}}"
+        >{{good}}</text>
+    </view>
+    <view class="middle-container">
+        <text 
+          class="count text-1 margin-left"
+          wx:if="{{item.visit_count}}"
+        >
+          <text class="icon iconfont icon-yanjing"></text>
+          <text>{{item.visit_count}}</text>
+        </text>
+
+        <text 
+          class="count text-1 margin-left"
+          wx:if="{{item.reply_count}}"
+        >
+          <text class="icon iconfont icon-duihua"></text>
+          <text>{{item.reply_count}}</text>
+        </text>
+    </view>
+  </view>
+
+  <view class="bottom padding-l padding-v-10 justify-container">
+    <text class="name text-2">{{author.loginname}}</text>
+    <text 
+      class="time text-1"
+      wx:if="{{createTime}}"
+    >{{createTime}}</text>
+  </view>
+
+</view>

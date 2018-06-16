@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "topic-item": "/components/topic-item/topic-item",
+    "topic-item-loading": "/components/topic-item-loading/topic-item-loading",
+    "login-tip": "/components/login/login-tip/login-tip",
+    "login-modal": "/components/login/login-modal/login-modal"
+  }
+}

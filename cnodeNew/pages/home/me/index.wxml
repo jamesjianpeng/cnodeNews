@@ -1,0 +1,13 @@
+<!--pages/home/me/index.wxml-->
+<view class="me-container {{ !isToken ? 'container-padding-top' :'' }}">
+  <login-tip wx:if="{{!isToken}}" bind:onLogin="login" />
+  <view>
+    <me 
+      wx:if="{{!isLoading}}"
+      info="{{data}}" recentReplies="{{recentReplies}}" />
+  </view> 
+   <login-modal 
+    wx:if="{{islogining}}"
+    bind:onCancel="closeLoginModal"
+  />  
+</view>

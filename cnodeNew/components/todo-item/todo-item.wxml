@@ -1,0 +1,22 @@
+<!--components/TodoItem/TodoItem.wxml-->
+<view 
+  class="item"
+>
+  <icon 
+    data-index="{{index}}"
+    data-item="{{item}}"
+    class="clear" 
+    bindtap="del" 
+    type="clear" 
+    size="20"
+  />  
+  <block>
+    <text> {{index + 1}} </text> -
+    <text> {{item.isSlect ? '选中' : '未选中'}} </text> -
+    <text> {{item.isComplate ? '完成' : '未完成'}} </text>
+    <text>component</text>
+  </block>
+  <text> 
+    {{item.text}} 
+  </text>
+</view>

@@ -1,0 +1,31 @@
+<!--pages/todo/todo.wxml-->
+<view class="todo">
+  
+  <view class="header">
+    <view class="input-container">
+      <input 
+        class="input"
+        placeholder="请输入信息"
+        bindinput="input"
+        value="{{value}}"
+      />
+    </view>
+    <view class="button-container">
+      <button class="button" bindtap="add"> add </button>
+    </view>
+  </view>
+
+  <view class="list">
+    <block
+      wx:for="{{list}}"
+      wx:key="index"
+    >
+      <todo-item
+        index="{{index}}"
+        item="{{item}}"
+        bind:onDel="del"
+      />
+    </block>
+  </view>
+
+</view>

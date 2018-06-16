@@ -1,0 +1,26 @@
+<!--components/me/me.wxml-->
+<view>
+  <view class="middle-v-container">
+    <view class="avatar-container">
+      <view 
+        class="avatar"
+        style="background-image: {{src}};"
+      >
+      </view>
+    </view>
+  </view>
+
+  <view class="text-3 justify-container padding-l padding-v">
+    <text>用户名：{{info.loginname}}</text> <text>githubName: {{info.githubUsername}}</text>
+  </view>
+  
+  <view class="text-2 justify-container padding-l padding-v">
+    <text>分数： {{info.score}}</text>
+    <text>创建时间：{{createTime}}</text>   
+  </view>
+
+
+<view>
+ 
+</view>
+</view>

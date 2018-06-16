@@ -1,0 +1,32 @@
+<!--components/login/login-modal/login-modal.wxml-->
+<view class="login-container login-container-init" animation="{{animationData}}">
+<!-- 56e98e6f-d125-4098-bce8-11e5f48968a7 -->
+  <view class="login border-radius position-ralative">
+      <loading-base 
+        wx:if="{{isLoading}}">
+      </loading-base>
+      <form  
+        class="form"
+        bindsubmit="formSubmit" 
+        bindreset="formReset"
+      >
+        <view class="section">
+          <input 
+            class="token-input"
+            placeholder="请输入 cnode accessToken "  
+            bindinput="input"
+            value="{{token}}" 
+            auto-focus
+          />
+        </view>
+        <view class="button-group">
+          <button class="submit text-3" formType="submit">登录</button>
+          <view class="button-bottom">
+            <button class="reset text-2" formType="reset">重置</button>
+            <button class="cancel text-2" bindtap="cancel">返回</button>
+          </view>
+        </view>
+      </form>
+  </view>
+
+</view>
