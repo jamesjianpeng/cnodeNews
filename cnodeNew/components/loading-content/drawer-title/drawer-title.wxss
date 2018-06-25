@@ -1,0 +1,12 @@
+/* components/drawer/drawer-item/drawer-item.wxss */
+@import "../../../app.wxss";
+
+.list-container {
+  height: 0;
+  overflow-y: hidden;
+  transition: all 1s ease;
+}
+
+.list-container-show {
+  height: auto;
+}

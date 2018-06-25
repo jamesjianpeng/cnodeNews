@@ -1,0 +1,9 @@
+<!--components/drawer/drawer-item/drawer-item.wxml-->
+<view class="drawer padding-v">
+  <view bindtap="showListContainer" class="title primary-bg-2 padding-v padding-l border-radius text-withe-1 text-2">
+    {{title}}
+  </view>
+  <view class="list-container {{isShow ? 'list-container-show' : ''}}">
+    <slot></slot>
+  </view>
+</view>
