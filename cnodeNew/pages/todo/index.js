@@ -12,7 +12,8 @@ Page({
       text: 'example text',
       isComplate: false,
       sign: true
-    }
+    },
+    scrollList: []
   },
 
   /**
@@ -20,6 +21,9 @@ Page({
    */
   onLoad: function (options) {
      console.log('onLoad');
+     this.setData({
+       scrollList: new Array(30)
+     })
   },
 
   /**
@@ -68,7 +72,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    
   },
 
   /**
@@ -76,6 +80,22 @@ Page({
    */
   onShareAppMessage: function () {
     console.log('onShareAppMessage');
+  },
+
+  upper () {
+    console.log('10 upper')
+  },
+
+  lower () {
+    console.log('10 lower')
+    const list = new Array(10)
+    this.setData({
+      scrollList: this.data.scrollList.concat(list)
+    })
+  },
+
+  scroll () {
+    console.log('scroll')
   },
   
   del (event) {

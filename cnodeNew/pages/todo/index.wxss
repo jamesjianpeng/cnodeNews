@@ -60,3 +60,23 @@ input.input:focus {
 .item-father:hover .clear-father {
   opacity: 1
 }
+
+/* 视屏 */
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.scroll-container {
+  flex: auto;
+  height: 60vh;
+  overflow: auto;
+  padding: 10rpx 30rpx;
+}
+
+.flex-container {
+  width: 100%;
+  height: 40vh;
+  background-color: #eee;
+}

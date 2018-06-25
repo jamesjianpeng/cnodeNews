@@ -1,7 +1,8 @@
 <!--pages/todo/todo.wxml-->
-<view class="todo">
+<!-- <view class="todo"> -->
+<view class="wrap">
   
-  <view class="header">
+  <!-- <view class="header">
     <view class="input-container">
       <input 
         class="input"
@@ -26,6 +27,32 @@
         bind:onDel="del"
       />
     </block>
+  </view> -->
+
+  <view class="flex-container">
+    video container
+  </view>
+  <view class="scroll-container">
+      <scroll-view 
+        scroll-y 
+        style="height: 100%" 
+        bindscrolltoupper="upper" 
+        bindscrolltolower="lower" 
+        bindscroll="scroll" 
+        lower-threshold="0"
+        upper-threshold="10"
+        scroll-into-view="{{toView}}" 
+        scroll-top="0">
+          <view
+            wx:for="{{scrollList}}"
+            wx:key="index">
+            text
+          </view>
+          <view>
+            加载中...
+          </view>
+    </scroll-view>
+
   </view>
 
 </view>
