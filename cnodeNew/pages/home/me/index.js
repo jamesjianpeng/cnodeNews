@@ -1,4 +1,7 @@
-// pages/home/me/index.js
+/**
+ * @file 登录用户的基本信息
+ * @author 彭涧
+ */
 const app = getApp();
 
 Page({
@@ -12,7 +15,15 @@ Page({
     animation: {},
     recentReplies: [],
     data: {},
-    isLoading: false
+    isLoading: false,
+    isUserLoading: true,
+    // 消息
+    isFetchData: false,
+    loadingItem: [{ loading: true }, { loading: true }, { loading: true }],
+    noReadList: [],
+    readList: [],
+    publisTopic: [],
+    repliesNews: [],
   },
 
   /**
@@ -31,6 +42,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      noReadList: this.data.loadingItem,
+      readList: this.data.loadingItem
+    })
     this.getIsToken()
     this.setData({
       islogining: !this.data.isToken
@@ -75,7 +90,7 @@ Page({
 
   getData () {
     this.setData({
-      isLoading: true
+      isUserLoading: true
     })
     if (!this.data.isToken) {
       this.setData({
@@ -85,21 +100,20 @@ Page({
     }
     const { loginname: name }  = app.getStorage('loginInfo') || {};
     const res = app.fetchData({
-      url: `${app.api.user}${name}`,
-      needToken: true
+      url: `${app.api.user}${name}`
     }).then((res) => {
       const data = res.data;
-      console.log(res)
       this.setData({
         data: data,
-        recentReplies: data.recent_replies
+        publisTopic: data.recent_topics,
+        repliesNews: data.recent_replies
       })
       this.setData({
-        isLoading: false
+        isUserLoading: false
       })
     }).catch((err) => {
       this.setData({
-        isLoading: false
+        isUserLoading: false
       })
     })
   },
@@ -116,9 +130,10 @@ Page({
       islogining: false
     });
     if (event.detail) {
-      const { detail: { login } } = event
+      const { detail: { login } } = event;
       if (login) {
-        this.getIsToken()
+        this.getIsToken();
+        this.getData();
       }
     }
   },
@@ -131,5 +146,37 @@ Page({
     this.setData({
       islogining: true
     })
+  },
+  getMsgList () {
+    const res = app.fetchData({
+      url: app.api.messages,
+      needToken: true
+    }).then((res) => {
+      const data = res.data;
+      this.setData({
+        noReadList: data.hasnot_read_messages,
+        readList: data.has_read_messages
+      })
+    }).catch((err) => {
+      this.setData({
+        isLoading: false
+      })
+    })
+  },
+  /* 消息 */
+  ondrawerChange (event = {}) {
+    const { detail } = event;
+    if (this.data.isFetchData) return;
+    const isFetchData = !this.data.isFetchData;
+    this.setData({
+      isFetchData,
+    });
+    this.getMsgList();
+  },
+  onTopicDetail (event) {
+    const { detail: { id } } = event;
+    wx.navigateTo({
+      url: `/pages/topic/topic-detail/index?id=${id}`,
+    });
   }
 })

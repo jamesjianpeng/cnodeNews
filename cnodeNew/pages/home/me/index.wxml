@@ -1,11 +1,124 @@
 <!--pages/home/me/index.wxml-->
 <view class="me-container {{ !isToken ? 'container-padding-top' :'' }}">
   <login-tip wx:if="{{!isToken}}" bind:onLogin="login" />
-  <view>
+  <view class="padding-l padding-v">
     <me 
-      wx:if="{{!isLoading}}"
+      wx:if="{{data.loginname}}"
       info="{{data}}" recentReplies="{{recentReplies}}" />
-  </view> 
+    <me-loading wx:else />
+  </view>
+  <view class="padding-l">
+
+  <block wx:if="{{data.loginname}}">
+      <!-- #region 发表的主题  -->
+      <drawer-item
+        title="发表的主题"
+        sign="noRead">
+        <view class="padding-v padding-l">
+        <block wx:if="{{publisTopic.length}}">
+          <block
+            wx:for="{{publisTopic}}"
+            wx:key="{{index}}"
+            class="padding-v padding-l"
+          >
+            <me-msg-item
+              index="{{index}}"
+              item="{{item}}"
+              bind:onTopicDetail="onTopicDetail"
+            />
+          </block>
+          </block>
+          <block wx:else>
+            <no-data />
+          </block>
+        </view>
+      </drawer-item>
+      <!-- #endregion  -->
+
+      <!-- #region 回复的消息  -->
+      <drawer-item
+        title="回复的消息"
+        sign="read">
+        <view class="padding-v padding-l">
+            <block wx:if="{{repliesNews.length}}"> 
+              <block
+                wx:for="{{repliesNews}}"
+                wx:key="{{index}}">
+                <me-msg-item
+                  index="{{index}}"
+                  item="{{item}}"
+                  bind:onTopicDetail="onTopicDetail"
+                />
+              </block>
+            </block> 
+            <block wx:else>
+              <no-data />
+            </block>
+        </view>
+      </drawer-item>
+      <!-- #endregion  -->
+
+    </block>
+    <block wx:else>
+      <drawer-title-loading />
+      <drawer-title-loading />
+    </block>
+    
+    <block wx:if="{{!isLoading && (noReadList.length || readList.length)}}">
+      <!-- #region 未读的消息  -->
+      <drawer-item
+        title="未读的消息"
+        sign="noRead"
+        bind:onChange="ondrawerChange">
+        <view class="padding-v padding-l">
+        <block wx:if="{{noReadList.length}}">
+          <block
+            wx:for="{{noReadList}}"
+            wx:key="{{index}}"
+            class="padding-v padding-l"
+          >
+            <me-msg-item
+              index="{{index}}"
+              item="{{item}}"
+              bind:onTopicDetail="onTopicDetail"
+            />
+          </block>
+        </block>
+        <block wx:else>
+          <no-data />
+        </block>
+       </view>
+      </drawer-item>
+      <!-- #region 已读的消息  -->
+      <drawer-item
+        title="已读的消息"
+        sign="read"
+        bind:onChange="ondrawerChange">
+        <view class="padding-v padding-l">
+           <block wx:if="{{readList.length}}"> 
+            <block
+              wx:for="{{readList}}"
+              wx:key="{{index}}">
+              <me-msg-item
+                index="{{index}}"
+                item="{{item}}"
+                bind:onTopicDetail="onTopicDetail"
+              />
+            </block>
+           </block> 
+          <block wx:else>
+            <no-data />
+          </block>
+        </view>
+      </drawer-item>
+      <!-- #endregion  -->
+    </block>
+    <block wx:else>
+      <drawer-title-loading />
+      <drawer-title-loading />
+    </block>
+    <!-- #endregion  -->
+  </view>
    <login-modal 
     wx:if="{{islogining}}"
     bind:onCancel="closeLoginModal"
