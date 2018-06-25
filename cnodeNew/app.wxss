@@ -22,6 +22,12 @@ view {
   justify-content: space-between;
 }
 
+.left-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .middle-container {
   display: flex;
   align-items: center;
@@ -85,6 +91,10 @@ view {
   margin-top: 10px; 
 }
 
+.margin-top-sm {
+  margin-top: 5px; 
+}
+
 .margin-right {
   margin-right: 5px;
 }
@@ -119,6 +129,10 @@ view {
   font-size: 14px;
 }
 
+.text-withe-1 {
+  color: #fff;
+}
+
 /* 富文本 */
 .rich-text img {
   width: 100%;
@@ -129,7 +143,7 @@ view {
 }
 
 .sub-bg-1 {
-  background-color: #FFCC80;
+  background-color: #3F51B5;
 }
 
 .sub-bg-2 {
@@ -139,9 +153,27 @@ view {
 .container-padding-top {
   padding-top: 40px;
 }
+.primary-bg-1 {
+  background-color: #3F51B5;
+}
+
+.primary-bg-2 {
+  background-color: #5C6BC0;
+} 
+
+.primary-bg-3 {
+  background-color: #7986CB;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
 
 /* loading */
-
 
 .content-loading {
   width: 100%;
@@ -177,6 +209,16 @@ view {
   border-radius: 3px !important;
 }
 
+.radius-loading-1 {
+  border-radius: 50%;
+}
+
 .opacity-loading {
   opacity: 0 !important;
+}
+
+/* avatar*/
+
+.avatar-width {
+  width: 20px;
 }
