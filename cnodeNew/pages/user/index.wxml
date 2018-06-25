@@ -1,0 +1,67 @@
+<!--pages/home/me/index.wxml-->
+<view class="me-container {{ !isToken ? 'container-padding-top' :'' }}">
+  <login-tip wx:if="{{!isToken}}" bind:onLogin="login" />
+  <view class="padding-l padding-v">
+    <me 
+      wx:if="{{!isLoading}}"
+      info="{{data}}"/>
+    <me-loading wx:else />
+  </view>
+  <view class="padding-l">
+    <block wx:if="{{!isLoading}}">
+      <drawer-item
+        title="发表的主题"
+        sign="noRead"
+        bind:onChange="ondrawerChange">
+        <view class="padding-v padding-l">
+        <block wx:if="noReadList.length">
+          <block
+            wx:for="{{publisTopic}}"
+            wx:key="{{index}}"
+            class="padding-v padding-l"
+          >
+            <me-msg-item
+              index="{{index}}"
+              item="{{item}}"
+              bind:onTopicDetail="onTopicDetail"
+            />
+          </block>
+        </block>
+       </view>
+      </drawer-item>
+      <drawer-item
+        title="回复的消息"
+        sign="read"
+        bind:onChange="ondrawerChange">
+        <view class="padding-v padding-l">
+           <block wx:if="readList.length"> 
+            <block
+              wx:for="{{repliesNews}}"
+              wx:key="{{index}}">
+              <me-msg-item
+                index="{{index}}"
+                item="{{item}}"
+                bind:onTopicDetail="onTopicDetail"
+              />
+            </block>
+           </block> 
+          <!-- <block wx:else>
+            <block
+              wx:for="[,,,,,]"
+              wx:index="{{index}}">
+              <me-msg-item-loading />
+            </block>   
+          </block> -->
+        </view>
+      </drawer-item>
+    </block>
+    <block wx:else>
+      <drawer-title-loading />
+      <drawer-title-loading />
+    </block>
+  </view>
+   <login-modal 
+    wx:if="{{islogining}}"
+    bind:onCancel="closeLoginModal"
+  />  
+</view>

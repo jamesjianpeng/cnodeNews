@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "login-tip": "/components/login/login-tip/login-tip",
+    "login-modal": "/components/login/login-modal/login-modal",
+    "me": "/components/me/me",
+    "me-loading": "/components/loading-content/me/me",
+    "drawer-title-loading": "/components/loading-content/drawer-title/drawer-title",
+    "drawer-item": "/components/drawer/drawer-item/drawer-item",
+    "me-msg-item": "/components/msg/me-msg-item/me-msg-item"
+  }
+}
