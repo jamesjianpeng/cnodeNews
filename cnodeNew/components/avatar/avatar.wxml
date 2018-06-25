@@ -1,0 +1,6 @@
+<!--components/avatar/avatar.wxml-->
+<view 
+  class="avatar"
+  style="background-image: {{url}};"
+>
+</view>

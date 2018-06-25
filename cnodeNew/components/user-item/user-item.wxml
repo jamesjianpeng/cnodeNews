@@ -1,0 +1,13 @@
+<!--components/user-item/user-item.wxml-->
+<view class="user-item external-class">
+    <view class="middle-container">
+      <view class="avatar-width margin-right">
+        <avatar src="{{src}}"/> 
+      </view>
+      <text class="text-1">{{name}}</text>
+    </view>
+    <text 
+      class="time text-1"
+      wx:if="{{createTime}}"
+    >{{createTime}}</text>
+</view>

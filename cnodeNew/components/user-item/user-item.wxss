@@ -1,0 +1,3 @@
+/* components/user-item/user-item.wxss */
+
+@import "../../app.wxss";
