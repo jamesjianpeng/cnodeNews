@@ -1,5 +1,5 @@
 // components/me/me.js
-import formatDate from '../../utils/fomat-time.js';
+const app = getApp();
 
 Component({
   /**
@@ -25,8 +25,8 @@ Component({
   },
 
   attached() {
-    this.getSrc(this.properties.info && this.properties.info.avatar_url)
-    this.getCreatedTime(this.properties.info && this.properties.info.create_at)
+    this.getSrc(this.properties.info && this.properties.info.avatar_url);
+    this.getTime(this.properties.info && this.properties.info.create_at);
   },
 
   /**
@@ -38,12 +38,13 @@ Component({
         src: `url('${src}')`
       })
     },
-    getCreatedTime(time) {
-      if (!time) return
-      const createTime = formatDate.getDate(+new Date(time), 'YYYY-MM-DD HH:mm').date;
-      this.setData({
-        createTime
-      })
+    getTime (time) {
+      const createTime = app.getCreatedTime(time)
+      if (createTime) {
+        this.setData({
+          createTime
+        })
+      }
     }
   }
 })

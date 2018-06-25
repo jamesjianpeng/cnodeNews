@@ -1,5 +1,5 @@
 /* components/me/me.wxss */
-@import "../../app.wxss";
+@import "../../../app.wxss";
 
 /* 头像 */
 .avatar-container {

@@ -1,0 +1,27 @@
+<!--components/me/me.wxml-->
+<view class="me-info primary-bg-1 justify-container padding-l padding-v border-radius bg-loading-1">
+    <view class="middle-v-container">
+      <view class="avatar-container bg-loading-2 radius-loading-1">
+        <avatar />
+      </view>
+    </view>
+    <view class="text-withe-1">
+      <block 
+      wx:for="{{mockList}}"
+      wx:key="{{index}}">
+        <view class="text-3 left-container padding-l padding-v">
+          <text class="bg-loading-3 radius-loading margin-right">
+          <text class="opacity-loading">{{item.left}}</text>
+          </text>
+          <text class="bg-loading-3 radius-loading align-left">
+          <text class="opacity-loading">{{item.right}}</text>
+          </text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+
+<view>
+ 
+</view>

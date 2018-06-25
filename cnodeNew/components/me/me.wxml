@@ -1,26 +1,28 @@
 <!--components/me/me.wxml-->
-<view>
-  <view class="middle-v-container">
-    <view class="avatar-container">
-      <view 
-        class="avatar"
-        style="background-image: {{src}};"
-      >
+<view class="me-info primary-bg-1 justify-container padding-l padding-v border-radius">
+    <view class="middle-v-container">
+      <view class="avatar-container">
+        <avatar src="{{info.avatar_url}}" />
       </view>
     </view>
-  </view>
-
-  <view class="text-3 justify-container padding-l padding-v">
-    <text>用户名：{{info.loginname}}</text> <text>githubName: {{info.githubUsername}}</text>
-  </view>
-  
-  <view class="text-2 justify-container padding-l padding-v">
-    <text>分数： {{info.score}}</text>
-    <text>创建时间：{{createTime}}</text>   
+    <view class="text-withe-1">
+      <view class="text-3 justify-container padding-l padding-v">
+        <text>用户名：{{info.loginname}}</text>
+      </view>
+      <view class="text-3 justify-container padding-l padding-v">
+        <text>github: {{info.githubUsername}}</text>
+      </view>
+      
+      <view class="text-2 justify-container padding-l padding-v">
+        <text>分数： {{info.score}}</text>
+      </view>
+      <view class="text-2 justify-container padding-l padding-v">
+        <text>创建时间：{{createTime}}</text>     
+      </view>
+    </view>
   </view>
 
 
 <view>
  
-</view>
 </view>
