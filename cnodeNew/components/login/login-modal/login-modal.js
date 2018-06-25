@@ -30,7 +30,6 @@ Component({
   },
 
   detached () {
-    console.log('detached');
   },
 
   /**
@@ -67,12 +66,10 @@ Component({
     },
 
     formSubmit () {
-      console.log('formSubmit');
       this.login()
     },
 
     formReset () {
-      console.log('formReset');
     },
 
     cancel () {
@@ -90,10 +87,16 @@ Component({
       this.setData({
         isLoading: true
       })
-      console.log(this.data.isLoading)
       const { token } = this.data
       if (!token) {
-        console.log('请输入');
+        wx.showToast({
+          title: '请输入密钥',
+          icon: 'none',
+          duration: 1500
+        })
+        this.setData({
+          isLoading: false
+        })
         return
       }
       const res = app.fetchData({
