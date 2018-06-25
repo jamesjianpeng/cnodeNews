@@ -1,3 +1,11 @@
 /* components/collect/collect.wxss */
 
 @import "../../app.wxss";
+
+.aixin-is-collect {
+    color: #FFA726;
+ }
+
+.aixin-is-collect::before {
+   color: #FFA726;
+}
