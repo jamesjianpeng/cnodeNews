@@ -1,6 +1,14 @@
 <!--pages/topic-list/topic-list.wxml-->
 <view class="container-default">
+
+    <!-- #region login -->
     <login-tip wx:if="{{!isToken}}" bind:onLogin="login" />
+    <login-modal 
+      wx:if="{{islogining}}"
+      bind:onCancel="closeLoginModal"
+    />
+    <!-- #endregion -->
+
     <view class="container-default {{ !isToken ? 'container-padding-top' :'' }}">
         <block
           wx:if="{{list.length}}"      
@@ -11,10 +19,11 @@
           <topic-item
             index="{{index}}"
             item="{{item}}" 
-            bind:onTopicDetail="onTopicDetail"
+            bind:onTopicItem="onTopicItem"
           />
         </block>
-      </block> 
+        <loading-more more="{{more}}"></loading-more>
+      </block>
 
       <block
         wx:else      
@@ -26,8 +35,4 @@
         </block>
        </block> 
     </view>
-    <login-modal 
-      wx:if="{{islogining}}"
-      bind:onCancel="closeLoginModal"
-    />
 </view>

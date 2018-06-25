@@ -1,4 +1,7 @@
-// pages/topic-list/topic-list.js
+/**
+ * @file 专题列表
+ * @author 彭涧
+ */
 import api from '../../../api/api.js';
 const app = getApp();
 
@@ -8,15 +11,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: [{
-      message: 'foo',
-    }, {
-      message: 'bar'
-    }],
     list: [],
     isLoading: false,
     islogining: false,
     isToken: true,
+    page: 1,
+    tab: '',
+    more: true,
+    limit: 5
   },
 
   /**
@@ -35,7 +37,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    console.log('onShow topics');
     this.getIsToken();
     this.getData();
   },
@@ -58,7 +59,9 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom () {},
+  onReachBottom () {
+    this.getData()
+  },
 
   /**
    * 用户点击右上角分享
@@ -66,60 +69,78 @@ Page({
   onShareAppMessage () {},
 
   getData () { // 数据获取
+
+     
+    /**
+     * 请求还未回来
+     */
+    if (this.data.isLoading) return
+
     this.setData({
-      isLoading: true
-    })
+      isLoading: true,
+    });
+
     const res = app.fetchData({
-      url: api.topics
+      url: api.topics,
+      data: {
+        page: this.data.page,
+        tab: this.data.tab,
+        limit: this.data.limit
+      }
     }).then((res) => {
-      const list = res.data;
+      const list = res.data || [];
       this.setData({
-        list
-      })
-      this.setData({
-        isLoading: false
-      })
+        more: this.data.limit <= list.length,
+        list: this.data.list.concat(list),
+        isLoading: false,
+        page: ++this.data.page
+      });
     }).catch((err) => {
       this.setData({
-        isLoading: false
-      })
-      console.log(err)
+        isLoading: false,
+        more: true
+      });
     })
   },
 
-  onTopicDetail (event) {
-    const { id } = event.detail
-    wx.navigateTo({
-      url: `/pages/topic/topic-detail/index?id=${id}`
-    })
+  onTopicItem (event) {
+    const { id, name } = event.detail;
+    let url = '';
+    if (id) url = `/pages/topic/topic-detail/index?id=${id}`;
+    if (name) url = `/pages/user/index?name=${name}`;
+    if (url) {
+      wx.navigateTo({
+        url,
+      });
+    }
   },
 
   getIsToken () {
-    const token = app.getToken()
+    const token = app.getToken();
     this.setData({
-      isToken: !!token
-    })
+      isToken: !!token,
+    });
   },
 
   closeLoginModal (event = {}) {
     this.setData({
-      islogining: false
-    })
+      islogining: false,
+    });
     if (event.detail) {
-      const { detail: { login } } = event
+      const { detail: { login } } = event;
       if (login) {
-        this.getIsToken()
+        this.getIsToken();
       }
     }
   },
 
   login () {
-    this.loginBefore()
+    this.loginBefore();
   },
 
   loginBefore () {
     this.setData({
-      islogining: true
-    })
+      islogining: true,
+    });
   }
 })
