@@ -5,9 +5,10 @@
       wx:if="{{!loading}}"
       sign="detail"
       item="{{value}}" 
+      bind:onTopicItem="onTopicItem"
     />
-    <view>
-      <collect />
+    <view class="padding-v padding-l">
+      <collect wx:if="{{!loading}}" topic-id="{{value.id}}" is-collect="{{value.is_collect}}" />
     </view>
     <view class="padding-l padding-v text-withe">
       <rich-text nodes="{{value.content}}" bindtap="tap"></rich-text>

@@ -1,5 +1,7 @@
-// pages/topic-detail/topic-detail.js
-// const Towxml = require('/towxml/main'); 
+/**
+ * @file 专题详情
+ * @author 彭涧
+ */
 const app = getApp();
 
 Page({
@@ -32,11 +34,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow(option) {
-    console.log(app.api)
     this.getData()
-    // this.setData({
-    //   id: option.id
-    // })
   },
 
   /**
@@ -75,10 +73,10 @@ Page({
   },
 
   getData() { // 数据获取
-    const id = this.data.id
-    console.log(id);
+    const id = this.data.id;
     const res = app.fetchData({
-      url: `${app.api.topicDetail}${id}`
+      url: `${app.api.topicDetail}${id}`,
+      needToken: true,
     }).then((res) => {
       const value = res.data;
       value.content = value.content.replace(/\<img/gi, '<img style="width:100%;height:auto" ')
@@ -91,5 +89,17 @@ Page({
     }).catch((err) => {
       console.log(err)
     })
+  },
+
+  onTopicItem (event) {
+    const { id, name } = event.detail;
+    let url = ''
+    if (id) url = `/pages/topic/topic-detail/index?id=${id}`;
+    if (name) url = `/pages/user/index?name=${name}`;
+    if (url) {
+      wx.navigateTo({
+        url,
+      });
+    }
   }
 })
