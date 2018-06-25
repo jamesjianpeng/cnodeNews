@@ -1,0 +1,3 @@
+<view class="more-loading align-center margin-top border-radius text-withe-1  padding-v-10 text-1">
+    <text>{{ loadingText }}</text>
+</view>

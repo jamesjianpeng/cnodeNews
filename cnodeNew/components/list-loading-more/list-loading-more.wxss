@@ -1,0 +1,5 @@
+
+@import '../../app.wxss';
+.more-loading {
+    background-image: linear-gradient(#7986CB 0%, #eee 120%);  
+}
