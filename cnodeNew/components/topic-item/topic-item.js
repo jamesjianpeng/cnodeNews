@@ -34,9 +34,24 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    /**
+     * 每一项主题的 event 出口
+     * @param {Object} detail 
+     */
+    triggerEnentOut (detail) {
+      this.triggerEvent('onTopicItem', detail);
+    },
+
+   getTopicDetail () {
+      const detail = {
+        id: this.properties.item.id
+      }
+      this.triggerEnentOut(detail);
+      // this.triggerEvent('onTopicDetail', detail)
+    },
+
     handlerValue () {
       const { item } = this.properties
-      console.log(item)
       this.getCreatedTime(item && item.create_at); // format 创建时间
       this.getTab(item && item.tab, item && item.good); // format tab
       this.getAuthor(item && item.author); // 作者
@@ -59,11 +74,13 @@ Component({
         author: author || {}
       })
     },
-    getTopicDetail() {
+    
+    getUserInfo() {
       const detail = {
-        id: this.properties.item.id
+        name: this.properties.item.author.loginname
       }
-      this.triggerEvent('onTopicDetail', detail)
+      this.triggerEnentOut(detail)
+      // this.triggerEvent('onTopicDetail', detail)
     }
   }
 })

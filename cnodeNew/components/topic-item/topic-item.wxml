@@ -2,10 +2,9 @@
 <view 
   data-id="{{index}}"
   class="topic-item"
-  bindtap="getTopicDetail"
 >
   
-  <view class="top padding-l padding-v-7">
+  <view class="top padding-l padding-v-7" bind:tap="getTopicDetail">
     <text class="title text-3">{{item.title}}</text>  
   </view>
   <view class="justify-container cetner padding-l padding-v-10">
@@ -39,12 +38,13 @@
     </view>
   </view>
 
-  <view class="bottom padding-l padding-v-10 justify-container">
-    <text class="name text-2">{{author.loginname}}</text>
-    <text 
-      class="time text-1"
-      wx:if="{{createTime}}"
-    >{{createTime}}</text>
+  <view class="bottom padding-l padding-v-10" bind:tap="getUserInfo">
+    <user-item 
+      src="{{item && item.author && item.author.avatar_url}}" 
+      name="{{item && item.author && item.author.loginname}}"
+      createTime="{{createTime}}"
+      external-class="justify-container"
+    />
   </view>
 
 </view>
