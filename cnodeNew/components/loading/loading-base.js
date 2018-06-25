@@ -18,7 +18,6 @@ Component({
   },
 
   ready () {
-    console.log('attached', this.properties)
     this.setData({
       isLoading: this.properties.isloading
     })

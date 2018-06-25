@@ -32,7 +32,6 @@ Component({
     getLoadingItemOne(min, max) {
       let num = this.getRandomNum(min, max)
       num = Math.floor(num);
-      console.log(num, num > 2)
       this.setData({
         loadingItemOne: num > 3 ? true : false,
         loadingItemThree: num + 1 > 3 ? true : false,
