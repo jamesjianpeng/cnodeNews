@@ -1,0 +1,25 @@
+<!--components/msg/me-msg/me-msg.wxml-->
+<view class="primary-bg-3 padding-v-10 padding-l border-radius text-withe-1 bg-loading-1 {{index ? 'margin-top' : 'margin-top-sm'}}">
+  <view class="title text-1">
+    <text class="text-1 bg-loading-3 radius-loading">
+      <text class="opacity-loading">createTimexxxxx</text>
+    </text>
+  </view>
+  <view class="author justify-container">
+    <view class="middle-container">
+      <view class="avatar-width margin-right radius-loading-1 bg-loading-2">
+        <avatar src="{{item && item.author && item.author.avatar_url}}"/> 
+      </view>
+      <text class="text-1 bg-loading-3 radius-loading">
+        <!-- <text class="text-1">item</text> -->
+        <text class="opacity-loading font-size-loading">createTime</text>
+      </text>
+    </view>
+    <text class="text-1 bg-loading-2 radius-loading">
+      <text class="opacity-loading font-size-loading">xxxxxxxxxxx</text>
+    </text>
+   <!-- <view class="reply">
+    <rich-text nodes="{{item && item.reply && item.reply.content}}"></rich-text>
+  </view>  -->
+  </view>
+</view>

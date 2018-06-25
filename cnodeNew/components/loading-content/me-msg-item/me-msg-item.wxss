@@ -1,0 +1,11 @@
+/* components/msg/me-msg/me-msg.wxss */
+@import "../../../app.wxss";
+
+.msg-avatar {
+  width: 20px;
+}
+
+.author {
+  margin-top: 5px;
+  vertical-align: center;
+}

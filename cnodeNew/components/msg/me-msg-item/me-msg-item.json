@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "user-item": "/components/user-item/user-item",
+    "me-msg-item-loading": "/components/loading-content/me-msg-item/me-msg-item"
+  }
+}

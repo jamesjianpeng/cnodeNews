@@ -1,0 +1,31 @@
+<!--components/msg/me-msg/me-msg.wxml-->
+<view>
+   <block wx:if="{{!item.loading}}"> 
+    <view class="primary-bg-3 padding-v-10 padding-l border-radius text-withe-1 {{index ? 'margin-top' : 'margin-top-sm'}}" 
+      bindtap="getTopicDetail">
+      <view class="title text-1 padding-v">
+        {{(item && item.topic && item.topic.title) || item.title}}
+      </view>
+      <view class="author">
+        <user-item 
+          src="{{item && item.author && item.author.avatar_url}}" 
+          name="{{item && item.author && item.author.loginname}}"
+          createTime="{{createTime}}"
+          external-class="justify-container"
+        />
+        <!-- <view class="middle-container">
+          <view class="avatar-width margin-right">
+            <avatar src="{{item && item.author && item.author.avatar_url}}"/> 
+          </view>
+          <text class="text-1">{{item && item.author && item.author.loginname}}</text>
+        </view>
+        <text class="text-1">{{createTime}}</text> -->
+      </view>
+    </view>
+    </block>
+    <block wx:else>
+      <view class="{{index ? 'margin-top' : 'margin-top-sm'}}">
+        <me-msg-item-loading /> 
+      </view>
+    </block> 
+</view>
