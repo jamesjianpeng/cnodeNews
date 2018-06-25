@@ -1,4 +1,5 @@
 //app.js
+import formatDate from './utils/fomat-time.js';
 import api from '/api/api.js';
 
 App({
@@ -8,11 +9,16 @@ App({
     data, 
     needToken 
   }) {
-    console.log(url, '=====');
     const header = {
       'content-type': 'application/json', // 默认值
-      'accesstoken': needToken ? wx.getStorageSync('token') : ''
+      // 'accesstoken': needToken && method === 'POST' ? wx.getStorageSync('token') : ''
     };
+    if (needToken) { // method 为 get 同时 需要 toke
+      data = {
+        accessToken: wx.getStorageSync('token'),
+        ...data,
+      }
+    }
     return new Promise((resolve, reject) => {
       wx.request({
         url,
@@ -27,6 +33,11 @@ App({
         }
       })
     })
+  },
+  getCreatedTime(createTime) {
+    if (!createTime) return
+    createTime = formatDate.getDate(+new Date(createTime), 'YYYY-MM-DD HH:mm:ss').date;
+    return createTime
   },
   getToken () {
     return this.getStorage('token')
@@ -55,7 +66,6 @@ App({
     // 获取用户信息
     wx.getSetting({
       success: res => {
-        console.log(res, 'getSeting app.js')
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
